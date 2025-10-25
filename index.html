@@ -6,353 +6,111 @@
     <title>Student Registration Form</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
-            background-image: url("img.jpg");
-            background-size:cover;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            height: 100vh;
         }
-
-        .form-container {
-            background-color: #81D4FA;
-            padding: 40px 50px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 650px;
-            box-sizing: border-box;
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .form-container:hover {
-            transform: scale(1.01);
-        }
-
-        h1 {
-            text-align: center;
-            color: #343a40;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #495057;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="date"],
-        input[type="url"],
-        input[type="password"],
-        input[type="number"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 1rem;
-            color: #495057;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        input[type="date"]:focus,
-        input[type="url"]:focus,
-        input[type="password"]:focus,
-        input[type="number"]:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
-            outline: none;
-        }
-
-        /* Radio and Checkbox Styling */
-        .radio-group,
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .radio-group label,
-        .checkbox-group label {
-            font-weight: normal;
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
-
-        input[type="radio"],
-        input[type="checkbox"] {
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ced4da;
-            border-radius: 50%;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            outline: none;
-        }
-        
-        input[type="radio"]:checked,
-        input[type="checkbox"]:checked {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        
-        input[type="radio"]:checked::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
+        .container {
             background-color: #fff;
-            border-radius: 50%;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #aaa;
+            width: 400px;
         }
-
-        input[type="checkbox"] {
-            border-radius: 4px;
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        
-        input[type="checkbox"]:checked::before {
-            content: '✔';
-            color: #fff;
-            font-size: 14px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Input specific styling */
-        input[type="color"] {
-            width: 60px;
-            height: 40px;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: box-shadow 0.3s ease;
-        }
-
-        input[type="color"]:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        input[type="range"] {
+        input[type=text], input[type=email], input[type=password], select {
             width: 100%;
-            height: 8px;
-            background: #e9ecef;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            outline: none;
-            transition: background 0.3s;
         }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: #007bff;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
+        input[type=radio] {
+            margin-right: 10px;
         }
-
-        input[type="range"]::-webkit-slider-thumb:hover {
-            background: #0056b3;
-            transform: scale(1.1);
+        label {
+            margin-bottom: 5px;
+            display: block;
         }
-
-        .rating-value {
-            margin-left: 10px;
-            font-weight: bold;
-            color: #007bff;
-            transition: color 0.3s ease;
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 10px;
         }
-        
-        /* Button Styling */
-        .submit-btn {
+        button {
             width: 100%;
-            padding: 15px;
-            background-color: #007bff;
-            color: #fff;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            font-weight: 600;
+            font-size: 16px;
         }
-
-        .submit-btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
-            box-shadow: none;
-        }
-
-        /* Error Message Styling */
-        .error {
-            color: #dc3545;
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: none;
-            transition: opacity 0.3s ease;
-            animation: slideIn 0.3s ease-in-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-10px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Student Registration</h1>
-        <form id="registrationForm" action="/register" method="POST">
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form id="registrationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required minlength="3">
-                <span class="error" id="nameError">Name must be at least 3 characters.</span>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter a password" required>
+
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female" required> Female
+            <input type="radio" name="gender" value="Other" required> Other
+
+            <label for="course">Select Course:</label>
+            <select id="course" name="course" required>
+                <option value="">--Select Course--</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+            </select>
+
+            <label>Hobbies:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+                <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+                <label><input type="checkbox" name="hobbies" value="Music"> Music</label>
+                <label><input type="checkbox" name="hobbies" value="Travel"> Travel</label>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <span class="error" id="emailError">Please enter a valid email address.</span>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required minlength="8">
-                <span class="error" id="passwordError">Password must be at least 8 characters.</span>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-                <span class="error" id="phoneError">Please enter a 10-digit phone number.</span>
-            </div>
-
-            <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" min="16" max="99" required>
-                <span class="error" id="ageError">Age must be between 16 and 99.</span>
-            </div>
-
-            <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
-                <span class="error" id="dobError">Please enter your date of birth.</span>
-            </div>
-
-            <div class="form-group">
-                <label>Gender:</label>
-                <div class="radio-group">
-                    <input type="radio" id="male" name="gender" value="male" required>
-                    <label for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Female</label>
-                    <input type="radio" id="other" name="gender" value="other">
-                    <label for="other">Other</label>
-                </div>
-                <span class="error" id="genderError">Please select your gender.</span>
-            </div>
-
-            <div class="form-group">
-                <label for="country">Country:</label>
-                <select id="country" name="country" required>
-                    <option value="">--Select a Country--</option>
-                    <option value="usa">United States</option>
-                    <option value="canada">Canada</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="india">India</option>
-                    <option value="australia">Australia</option>
-                </select>
-                <span class="error" id="countryError">Please select a country.</span>
-            </div>
-
-            <div class="form-group">
-                <label>Courses of Interest:</label>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="math" name="courses" value="Math">
-                    <label for="math">Mathematics</label>
-                    <input type="checkbox" id="cs" name="courses" value="Computer Science">
-                    <label for="cs">Computer Science</label>
-                    <input type="checkbox" id="physics" name="courses" value="Physics">
-                    <label for="physics">Physics</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="comments">Comments:</label>
-                <textarea id="comments" name="comments" rows="4"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="website">Personal Website (Optional):</label>
-                <input type="url" id="website" name="website">
-                <span class="error" id="websiteError">Please enter a valid URL.</span>
-            </div>
-
-            <div class="form-group">
-                <label for="fav_color">Favorite Color:</label>
-                <input type="color" id="fav_color" name="fav_color" value="#007bff">
-            </div>
-
-            <div class="form-group">
-                <label for="rating">Likelihood of Recommending Us (1-10):</label>
-                <input type="range" id="rating" name="rating" min="1" max="10" value="5">
-                <span class="rating-value" id="ratingValue">5</span>
-            </div>
-
-            <input type="hidden" name="form_id" value="student_reg_2024">
-
-            <button type="submit" class="submit-btn">Register</button>
+            <button type="submit">Register</button>
         </form>
     </div>
-    <script src="validate.js"></script>
-    <script>
-        const ratingInput = document.getElementById('rating');
-        const ratingValueSpan = document.getElementById('ratingValue');
 
-        ratingInput.addEventListener('input', () => {
-            ratingValueSpan.textContent = ratingInput.value;
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event){
+            event.preventDefault(); // prevent form submission
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const course = document.getElementById("course").value;
+            const hobbies = Array.from(document.querySelectorAll('input[name="hobbies"]:checked')).map(el => el.value);
+
+            alert(
+                `Registration Details:\nName: ${name}\nEmail: ${email}\nPassword: ${password}\nGender: ${gender}\nCourse: ${course}\nHobbies: ${hobbies.join(", ")}`
+            );
+
+            // You can send this data to backend using fetch/ajax here
         });
     </script>
 </body>
